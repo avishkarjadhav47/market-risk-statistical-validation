@@ -1,0 +1,696 @@
+/* ============================================================
+   style.css — Market Risk Statistical Validation Dashboard
+   Design system:
+   Warm ivory background + near-white analytical surfaces
+   + espresso typography + restrained bronze accent.
+   
+   Red / green are reserved for genuine risk-status signals.
+   ============================================================ */
+
+
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+
+:root {
+    /* Typography */
+    --ink: #2b211b;
+    --ink-soft: #493a30;
+    --muted: #786b61;
+    --muted-light: #9a8c80;
+
+    /* Surfaces */
+    --bg: #f5f1ec;
+    --bg-card: #fffdf9;
+    --bg-sidebar: #eee7df;
+    --bg-soft: #f1ebe5;
+    --bg-hover: #f7f1eb;
+
+    /* Borders */
+    --line: #ded5cc;
+    --line-soft: #e8e0d8;
+    --line-dark: #cfc4b9;
+
+    /* Accent */
+    --accent: #6f4e37;
+    --accent-dark: #513724;
+    --accent-soft: #f1e8df;
+    --accent-lighter: #f7f0e9;
+
+    /* Semantic status */
+    --good: #496b52;
+    --good-bg: #e8f0e8;
+
+    --bad: #9a4a3f;
+    --bad-bg: #f5e5e2;
+
+    --warning: #8a6435;
+    --warning-bg: #f5ecdf;
+
+    /* Misc */
+    --white: #ffffff;
+    --shadow-soft: 0 2px 8px rgba(75, 55, 40, 0.04);
+    --shadow-card: 0 4px 14px rgba(75, 55, 40, 0.045);
+}
+
+
+/* ============================================================
+   MAIN APPLICATION
+   ============================================================ */
+
+.stApp {
+    background-color: var(--bg) !important;
+    color: var(--ink) !important;
+}
+
+.main {
+    background-color: var(--bg) !important;
+}
+
+.block-container {
+    padding-top: 2rem !important;
+    padding-bottom: 3rem !important;
+    max-width: 1200px;
+}
+
+
+/* ============================================================
+   GLOBAL TEXT
+   ============================================================ */
+
+.stApp,
+.stApp p,
+.stApp span,
+.stApp label,
+.stApp div {
+    color: var(--ink);
+}
+
+
+/* Headings */
+
+.stApp h1,
+.stApp h2,
+.stApp h3,
+.stApp h4,
+.stApp h5,
+.stApp h6 {
+    color: var(--ink) !important;
+    font-weight: 600;
+}
+
+.stApp h1 {
+    font-weight: 700;
+    letter-spacing: -0.015em;
+}
+
+.stApp h2 {
+    letter-spacing: -0.008em;
+}
+
+.stApp h3 {
+    letter-spacing: -0.005em;
+}
+
+
+/* Subtitle */
+
+.app-subtitle {
+    color: var(--muted) !important;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: -0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+
+/* Small explanatory text */
+
+.stCaption,
+[data-testid="stCaptionContainer"] {
+    color: var(--muted) !important;
+}
+
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+section[data-testid="stSidebar"] {
+    background-color: var(--bg-sidebar) !important;
+    border-right: 1px solid var(--line) !important;
+}
+
+section[data-testid="stSidebar"],
+section[data-testid="stSidebar"] * {
+    color: var(--ink) !important;
+}
+
+section[data-testid="stSidebar"] h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted) !important;
+    font-weight: 700;
+}
+
+section[data-testid="stSidebar"] h3 {
+    color: var(--ink) !important;
+}
+
+section[data-testid="stSidebar"] label {
+    color: var(--ink-soft) !important;
+}
+
+section[data-testid="stSidebar"] p {
+    color: var(--muted) !important;
+}
+
+
+/* ============================================================
+   TEXT INPUTS / DATE INPUTS / NUMBER INPUTS
+   ============================================================ */
+
+.stTextInput input,
+.stDateInput input,
+.stNumberInput input {
+    background-color: var(--bg-card) !important;
+    color: var(--ink) !important;
+
+    border: 1px solid var(--line-dark) !important;
+    border-radius: 7px !important;
+
+    box-shadow: none !important;
+}
+
+.stTextInput input::placeholder,
+.stDateInput input::placeholder,
+.stNumberInput input::placeholder {
+    color: var(--muted-light) !important;
+}
+
+.stTextInput input:focus,
+.stDateInput input:focus,
+.stNumberInput input:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 1px var(--accent) !important;
+}
+
+
+/* ============================================================
+   SELECTBOX / MULTISELECT
+   ============================================================ */
+
+div[data-baseweb="select"] > div {
+    background-color: var(--bg-card) !important;
+    border-color: var(--line-dark) !important;
+    border-radius: 7px !important;
+}
+
+div[data-baseweb="select"] span {
+    color: var(--ink) !important;
+}
+
+div[role="listbox"] {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--line) !important;
+}
+
+div[role="option"] {
+    color: var(--ink) !important;
+}
+
+div[role="option"]:hover {
+    background-color: var(--accent-soft) !important;
+}
+
+
+/* ============================================================
+   SLIDERS
+   ============================================================ */
+
+.stSlider label {
+    color: var(--ink-soft) !important;
+}
+
+.stSlider [data-testid="stMarkdownContainer"] p {
+    color: var(--accent) !important;
+}
+
+.stSlider [role="slider"] {
+    background-color: var(--accent) !important;
+    border-color: var(--accent) !important;
+}
+
+
+/* ============================================================
+   CHECKBOXES
+   ============================================================ */
+
+.stCheckbox label {
+    color: var(--ink) !important;
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.stButton button {
+    background-color: var(--accent) !important;
+    color: var(--white) !important;
+
+    border: 1px solid var(--accent) !important;
+    border-radius: 7px !important;
+
+    font-weight: 600;
+    padding: 0.45rem 1rem;
+
+    transition:
+        background-color 0.15s ease,
+        border-color 0.15s ease,
+        transform 0.05s ease;
+}
+
+.stButton button:hover {
+    background-color: var(--accent-dark) !important;
+    border-color: var(--accent-dark) !important;
+    color: var(--white) !important;
+}
+
+.stButton button:active {
+    transform: translateY(1px);
+}
+
+
+/* ============================================================
+   SECTION NOTES / INFO BOXES
+   ============================================================ */
+
+.section-note {
+    background-color: var(--accent-soft) !important;
+    border-left: 3px solid var(--accent);
+
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+
+    font-size: 0.92rem;
+    line-height: 1.55;
+
+    color: var(--ink) !important;
+
+    margin-bottom: 1.15rem;
+
+    box-shadow: var(--shadow-soft);
+}
+
+.section-note * {
+    color: var(--ink) !important;
+}
+
+
+/* Streamlit alert/info */
+
+div[data-testid="stAlert"] {
+    background-color: var(--accent-soft) !important;
+    border: 1px solid #ddcfc2 !important;
+    border-radius: 8px !important;
+
+    box-shadow: none !important;
+}
+
+div[data-testid="stAlert"] * {
+    color: var(--ink-soft) !important;
+}
+
+
+/* ============================================================
+   METRIC CARDS
+   ============================================================ */
+
+div[data-testid="stMetric"] {
+    background-color: var(--bg-card) !important;
+
+    border: 1px solid var(--line) !important;
+    border-radius: 10px !important;
+
+    padding: 0.9rem 1rem;
+
+    box-shadow: var(--shadow-soft);
+
+    min-height: 92px;
+}
+
+div[data-testid="stMetricLabel"],
+div[data-testid="stMetricLabel"] * {
+    color: var(--muted) !important;
+    font-size: 0.80rem;
+    font-weight: 500;
+}
+
+div[data-testid="stMetricValue"],
+div[data-testid="stMetricValue"] * {
+    color: var(--ink) !important;
+    font-size: 1.38rem;
+    font-weight: 650;
+}
+
+div[data-testid="stMetricDelta"] {
+    color: var(--muted) !important;
+}
+
+
+/* ============================================================
+   VERDICT PILLS
+   ============================================================ */
+
+.verdict {
+    display: inline-block;
+
+    padding: 0.17rem 0.62rem;
+
+    border-radius: 999px;
+
+    font-size: 0.82rem;
+    font-weight: 650;
+
+    line-height: 1.4;
+}
+
+.verdict.pass {
+    background-color: var(--good-bg) !important;
+    color: var(--good) !important;
+}
+
+.verdict.fail {
+    background-color: var(--bad-bg) !important;
+    color: var(--bad) !important;
+}
+
+.verdict.warning {
+    background-color: var(--warning-bg) !important;
+    color: var(--warning) !important;
+}
+
+
+/* ============================================================
+   TABS
+   ============================================================ */
+
+div[data-baseweb="tab-list"] {
+    gap: 0.15rem;
+    border-bottom: 1px solid var(--line);
+}
+
+button[data-baseweb="tab"] {
+    font-size: 0.90rem;
+    font-weight: 550;
+
+    color: var(--muted) !important;
+
+    padding: 0.65rem 0.85rem;
+
+    transition:
+        color 0.15s ease,
+        background-color 0.15s ease;
+}
+
+button[data-baseweb="tab"]:hover {
+    color: var(--accent) !important;
+    background-color: var(--accent-lighter) !important;
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: var(--accent) !important;
+    font-weight: 650;
+}
+
+div[data-baseweb="tab-highlight"] {
+    background-color: var(--accent) !important;
+    height: 2px !important;
+}
+
+
+/* ============================================================
+   DATAFRAMES — LIGHT ANALYTICAL TABLE
+   ============================================================ */
+
+div[data-testid="stDataFrame"] {
+    background: var(--bg-card) !important;
+
+    border: 1px solid var(--line) !important;
+    border-radius: 10px !important;
+
+    overflow: hidden !important;
+
+    box-shadow: var(--shadow-soft);
+}
+
+div[data-testid="stDataFrame"] > div {
+    background: var(--bg-card) !important;
+}
+
+
+/* Dataframe toolbar / top controls */
+
+div[data-testid="stDataFrame"] button {
+    color: var(--ink-soft) !important;
+}
+
+
+/* Dataframe scrollbars */
+
+div[data-testid="stDataFrame"] ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+div[data-testid="stDataFrame"] ::-webkit-scrollbar-track {
+    background: #f1ece7;
+}
+
+div[data-testid="stDataFrame"] ::-webkit-scrollbar-thumb {
+    background: #c9beb3;
+    border-radius: 8px;
+}
+
+div[data-testid="stDataFrame"] ::-webkit-scrollbar-thumb:hover {
+    background: #a99687;
+}
+
+
+/* ============================================================
+   TABLE-LIKE MARKDOWN ELEMENTS
+   ============================================================ */
+
+.stMarkdown table {
+    width: 100%;
+    border-collapse: collapse;
+
+    background-color: var(--bg-card);
+
+    border: 1px solid var(--line);
+
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.stMarkdown thead tr {
+    background-color: #f1ebe5;
+}
+
+.stMarkdown th {
+    color: var(--ink-soft) !important;
+
+    font-size: 0.82rem;
+    font-weight: 650;
+
+    text-align: left;
+
+    padding: 0.65rem 0.75rem;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.stMarkdown td {
+    color: var(--ink) !important;
+
+    font-size: 0.82rem;
+
+    padding: 0.58rem 0.75rem;
+
+    border-bottom: 1px solid var(--line-soft);
+}
+
+.stMarkdown tbody tr:hover {
+    background-color: var(--bg-hover);
+}
+
+
+/* ============================================================
+   DIVIDERS
+   ============================================================ */
+
+hr {
+    border-color: var(--line) !important;
+}
+
+
+/* ============================================================
+   CHART / FIGURE CONTAINERS
+   ============================================================ */
+
+/*
+   These styles create a clean card surface around charts.
+   Actual plot styling is controlled in Matplotlib inside app.py.
+*/
+
+div[data-testid="stImage"],
+div[data-testid="stPlotlyChart"],
+div[data-testid="stPyplotChart"] {
+    background-color: var(--bg-card) !important;
+
+    border: 1px solid var(--line-soft) !important;
+    border-radius: 10px !important;
+
+    box-shadow: var(--shadow-soft);
+
+    padding: 0.15rem;
+}
+
+
+/* ============================================================
+   PLOTLY CHARTS
+   ============================================================ */
+
+.js-plotly-plot .plotly {
+    background-color: var(--bg-card) !important;
+}
+
+
+/* ============================================================
+   EXPANDERS
+   ============================================================ */
+
+div[data-testid="stExpander"] {
+    background-color: var(--bg-card) !important;
+
+    border: 1px solid var(--line) !important;
+    border-radius: 9px !important;
+
+    box-shadow: var(--shadow-soft);
+}
+
+div[data-testid="stExpander"] summary {
+    color: var(--ink-soft) !important;
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   TOOLTIPS / POPOVERS
+   ============================================================ */
+
+div[data-baseweb="popover"] {
+    background-color: var(--bg-card) !important;
+    border: 1px solid var(--line) !important;
+}
+
+
+/* ============================================================
+   FORM / CONTAINER SURFACES
+   ============================================================ */
+
+div[data-testid="stForm"] {
+    background-color: var(--bg-card) !important;
+
+    border: 1px solid var(--line) !important;
+    border-radius: 9px !important;
+
+    padding: 0.8rem;
+
+    box-shadow: var(--shadow-soft);
+}
+
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+
+.stApp a {
+    color: var(--accent) !important;
+    text-decoration: none;
+}
+
+.stApp a:hover {
+    color: var(--accent-dark) !important;
+    text-decoration: underline;
+}
+
+
+/* ============================================================
+   STATUS / SUCCESS / WARNING / ERROR
+   ============================================================ */
+
+div[data-testid="stNotification"] {
+    border-radius: 8px !important;
+}
+
+
+/* ============================================================
+   STREAMLIT CHROME
+   ============================================================ */
+
+/* Hide top Streamlit header */
+[data-testid="stHeader"] {
+    display: none !important;
+}
+
+/* Hide Streamlit menu */
+#MainMenu {
+    visibility: hidden;
+}
+
+/* Hide Streamlit footer */
+footer {
+    visibility: hidden;
+}
+
+
+/* Remove leftover top spacing */
+
+.stAppViewContainer {
+    margin-top: 0 !important;
+}
+
+.main .block-container {
+    padding-top: 2rem !important;
+}
+
+
+/* ============================================================
+   RESPONSIVE SPACING
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .block-container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .app-subtitle {
+        font-size: 0.90rem;
+    }
+
+    button[data-baseweb="tab"] {
+        font-size: 0.82rem;
+        padding-left: 0.55rem;
+        padding-right: 0.55rem;
+    }
+
+    div[data-testid="stMetricValue"],
+    div[data-testid="stMetricValue"] * {
+        font-size: 1.2rem;
+    }
+}
